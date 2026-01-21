@@ -79,6 +79,8 @@ const imageLogos = [
           variant="square"
           pixelSize={4}
           color="#27187E"
+          className=""
+          style={{}}
           patternScale={2}
           patternDensity={1}
           pixelSizeJitter={0}
@@ -107,8 +109,6 @@ const imageLogos = [
           interpolate={5}
           color="#69a8e2"
           gooeyFilter={{ id: "custom-goo-filter", strength: 2 }}
-          gooeyEnabled
-          gooStrength={2}
         />
       </div>
 
@@ -128,6 +128,10 @@ const imageLogos = [
       <div className="flex justify-start py-8 px-4 relative z-10 pointer-events-auto">
         <BubbleMenu
           items={items}
+          logo={null}
+          onMenuClick={() => {}}
+          className=""
+          style={{}}
           menuAriaLabel="Toggle navigation"
           menuBg="#ffffff"
           menuContentColor="#111111"
@@ -154,6 +158,9 @@ const imageLogos = [
             scale={1}
             threshold={0.1}
             delay={0.3}
+            container={null}
+            onComplete={() => {}}
+            onDisappearanceComplete={() => {}}
           >
             <div className="bg-gray-800 border-2 border-blue-500 rounded-3xl p-8 shadow-xl">
               <h2 className="text-2xl font-black text-blue-500 mb-2">#about</h2>
@@ -194,6 +201,9 @@ const imageLogos = [
             scale={1}
             threshold={0.1}
             delay={0.6}
+            container={null}
+            onComplete={() => {}}
+            onDisappearanceComplete={() => {}}
           >
             <div className="bg-gray-800 border-2 border-blue-500 rounded-3xl p-8 shadow-xl relative">
               <h2 className="text-2xl font-black text-blue-500 mb-6">Skills</h2>
@@ -213,6 +223,8 @@ const imageLogos = [
                         fadeOut
                         fadeOutColor="#1f2937"
                         ariaLabel="Technology partners"
+                        className=""
+                        style={{}}
                     />
 
                 </div>

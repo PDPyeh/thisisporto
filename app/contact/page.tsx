@@ -78,8 +78,6 @@ export default function ContactPage() {
           interpolate={5}
           color="#69a8e2"
           gooeyFilter={{ id: "custom-goo-filter", strength: 2 }}
-          gooeyEnabled
-          gooStrength={2}
         />
       </div>
 
@@ -99,6 +97,10 @@ export default function ContactPage() {
       <div className="flex justify-start py-8 px-4 relative z-10 pointer-events-auto">
         <BubbleMenu
           items={items}
+          logo={null}
+          onMenuClick={() => {}}
+          className=""
+          style={{}}
           menuAriaLabel="Toggle navigation"
           menuBg="#ffffff"
           menuContentColor="#111111"
@@ -123,6 +125,9 @@ export default function ContactPage() {
           scale={1}
           threshold={0.1}
           delay={0.3}
+          container={null}
+          onComplete={() => {}}
+          onDisappearanceComplete={() => {}}
         >
           <div className="bg-gray-800 border-2 border-blue-500 rounded-3xl p-8 shadow-xl max-w-2xl w-full">
             <h2 className="text-3xl font-black text-blue-500 mb-8 text-center">Get In Touch</h2>

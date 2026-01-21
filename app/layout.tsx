@@ -10,9 +10,9 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 const _pressStart2P = Press_Start_2P({ weight: '400', subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'PradipasPorto',
+  description: 'Created with my Mine Mind Brain love oh my god',
+  generator: 'Next.js',
   icons: {
     icon: [
       {
