@@ -1,65 +1,150 @@
-import Image from "next/image";
+'use client';
+
+import React from 'react';
+import ProfileCard from '@/components/ProfileCard';
+import PixelBlast from '@/components/PixelBlast';
+import BubbleMenu from '@/components/BubbleMenu';
+import PixelTrail from '@/components/PixelTrail';
+import AnimatedContent from '@/components/AnimatedContent';
 
 export default function Home() {
+  const items = [
+  {
+    label: 'home',
+    href: '/',
+    ariaLabel: 'Home',
+    rotation: -8,
+    hoverStyles: { bgColor: '#3b82f6', textColor: '#ffffff' },
+    onClick: () => window.location.href = '/'
+  },
+  {
+    label: 'about',
+    href: '/about',
+    ariaLabel: 'About',
+    rotation: 0,
+    hoverStyles: { bgColor: '#10b981', textColor: '#ffffff' },
+    onClick: () => window.location.href = '/about'
+  },
+  {
+    label: 'projects',
+    href: '/projects',
+    ariaLabel: 'Projects',
+    rotation: 8,
+    hoverStyles: { bgColor: '#f59e0b', textColor: '#ffffff' },
+    onClick: () => window.location.href = '/projects'
+  },
+  {
+    label: 'contact',
+    href: '/contact',
+    ariaLabel: 'Contact',
+    rotation: 12,
+    hoverStyles: { bgColor: '#8b5cf6', textColor: '#ffffff' },
+    onClick: () => window.location.href = '/contact'
+  }
+];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="min-h-screen bg-gray-900 relative overflow-hidden">
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <PixelBlast
+          variant="square"
+          pixelSize={4}
+          color="#27187E"
+          patternScale={2}
+          patternDensity={1}
+          pixelSizeJitter={0}
+          enableRipples
+          rippleSpeed={0.4}
+          rippleThickness={0.12}
+          rippleIntensityScale={1.5}
+          liquid={false}
+          liquidStrength={0.12}
+          liquidRadius={1.2}
+          liquidWobbleSpeed={5}
+          speed={0.5}
+          edgeFade={0.25}
+          transparent
+          />
+      </div>
+      {/* Background gradient subtle effect */}
+      <div className="fixed inset-0 opacity-20 pointer-events-none z-0" style={{
+        backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(74, 158, 255, 0.1), transparent 50%)'
+      }} />
+      
+      <div className="fixed inset-0 z-10 pointer-events-auto" style={{ width: '100vw', height: '100vh' }}>
+        <PixelTrail
+          gridSize={50}
+          trailSize={0.1}
+          maxAge={250}
+          interpolate={5}
+          color="#69a8e2"
+          gooeyFilter={{ id: "custom-goo-filter", strength: 2 }}
+          gooeyEnabled
+          gooStrength={2}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+      </div>
+
+      {/* Simple header with logo */}
+      <div className="relative z-20 px-6 py-8">
+        <div>
+          <h1 className="text-5xl font-black text-white mb-2">
+            <span className="text-blue-500">#about</span>
+            <span className="text-white font-bold">me</span>
+            <span className="text-gray-500 font-light"> ®</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+          <p className="text-gray-400 text-sm font-mono">(ini portofolio...)</p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </div>
+
+      {/* Navigation Menu */}
+      <div className="flex justify-start py-8 px-4 relative z-10 pointer-events-auto">
+        <BubbleMenu
+          items={items}
+          menuAriaLabel="Toggle navigation"
+          menuBg="#ffffff"
+          menuContentColor="#111111"
+          useFixedPosition={false}
+          animationEase="back.out(1.5)"
+          animationDuration={0.5}
+          staggerDelay={0.08}
+          defaultOpen={true}
+/>
+      </div>
+
+      {/* Main Content */}
+      
+      <div className="max-w-6xl mx-auto px-4 py-8 relative z-10">
+        <AnimatedContent
+            distance={140}
+            direction="vertical"
+            reverse
+            duration={1.4}
+            ease="elastic.out(1, 0.3)"
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.1}
+            delay={0.6}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        
+        <div className="flex flex-col items-center justify-center min-h-[70vh]">
+          <ProfileCard
+            avatarUrl="/photos/kiki.png"
+            name="PRADIPA YOGANANDA"
+            title="Software Engineer"
+            handle="pdpyeh"
+            status="Avail"
+            miniAvatarUrl="/photos/kiki.png"
+            enableTilt={true}
+            enableMobileTilt={true}
+            onContactClick={() => window.location.href = '/contact'}
+            behindGlowEnabled={true}
+            behindGlowColor="rgba(74, 158, 255, 0.4)"
+            innerGradient="linear-gradient(145deg, rgba(96, 73, 110, 0.4) 0%, rgba(113, 196, 255, 0.2) 100%)"
+          />
         </div>
-      </main>
+        </AnimatedContent>
+      </div>
     </div>
   );
 }
