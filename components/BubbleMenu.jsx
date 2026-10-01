@@ -188,6 +188,11 @@ export default function BubbleMenu({
                   ref={el => {
                     if (el) bubblesRef.current[idx] = el;
                   }}
+                  onClick={e => {
+                    if (item.onClick) {
+                      item.onClick(e);
+                    }
+                  }}
                 >
                   <span
                     className="pill-label"
