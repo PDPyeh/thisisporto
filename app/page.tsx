@@ -6,24 +6,24 @@ import AnimatedContent from '@/components/AnimatedContent';
 
 export default function Home() {
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8 relative z-10">
+    <div className="max-w-6xl mx-auto px-4 py-2 md:py-8 relative z-10">
       <AnimatedContent
         distance={140}
         direction="vertical"
         reverse
-        duration={1.4}
+        duration={0.8}
         ease="elastic.out(1, 0.3)"
         initialOpacity={0}
         animateOpacity
         scale={1}
         threshold={0.1}
-        delay={0.6}
+        delay={0.1}
         container={null}
         onComplete={() => { }}
         onDisappearanceComplete={() => { }}
       >
 
-        <div className="flex flex-col items-center justify-center min-h-[70vh]">
+        <div className="flex flex-col items-center justify-center min-h-0 md:min-h-[70vh] py-2 md:py-4">
           <ProfileCard
             avatarUrl="/photos/myfoto.png"
             name="PRADIPA YOGANANDA"

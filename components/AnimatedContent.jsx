@@ -83,6 +83,13 @@ const AnimatedContent = ({
       onEnter: () => tl.play()
     });
 
+    const rect = el.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    if (rect.top < viewportHeight * (startPct / 100)) {
+      tl.play();
+    }
+    ScrollTrigger.refresh();
+
     return () => {
       st.kill();
       tl.kill();

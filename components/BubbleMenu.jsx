@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
+import Link from 'next/link';
 
 import './BubbleMenu.css';
 
@@ -173,7 +174,7 @@ export default function BubbleMenu({
           <ul className="pill-list" role="menu" aria-label="Menu links">
             {menuItems.map((item, idx) => (
               <li key={idx} role="none" className="pill-col">
-                <a
+                <Link
                   role="menuitem"
                   href={item.href}
                   aria-label={item.ariaLabel || item.label}
@@ -202,7 +203,7 @@ export default function BubbleMenu({
                   >
                     {item.label}
                   </span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
