@@ -190,6 +190,17 @@ export default function BubbleMenu({
                     if (el) bubblesRef.current[idx] = el;
                   }}
                   onClick={e => {
+                    if (item.href && item.href.startsWith('#')) {
+                      e.preventDefault();
+                      const targetId = item.href.slice(1);
+                      const targetEl = document.getElementById(targetId);
+                      if (targetEl) {
+                        targetEl.scrollIntoView({ behavior: 'smooth' });
+                      }
+                      if (window.innerWidth < 900) {
+                        setIsMenuOpen(false);
+                      }
+                    }
                     if (item.onClick) {
                       item.onClick(e);
                     }

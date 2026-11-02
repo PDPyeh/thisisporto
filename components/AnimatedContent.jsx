@@ -79,8 +79,15 @@ const AnimatedContent = ({
       trigger: el,
       scroller: scrollerTarget,
       start: `top ${startPct}%`,
-      once: true,
-      onEnter: () => tl.play()
+      once: false,
+      onEnter: () => tl.restart(),
+      onLeaveBack: () => {
+        gsap.set(el, {
+          [axis]: offset,
+          scale,
+          opacity: animateOpacity ? initialOpacity : 1
+        });
+      }
     });
 
     const rect = el.getBoundingClientRect();

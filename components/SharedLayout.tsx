@@ -9,28 +9,28 @@ export default function SharedLayout({ children }: { children: React.ReactNode }
   const items = [
     {
       label: 'home',
-      href: '/',
+      href: '#home',
       ariaLabel: 'Home',
       rotation: -8,
       hoverStyles: { bgColor: '#3b82f6', textColor: '#ffffff' }
     },
     {
       label: 'about',
-      href: '/about',
+      href: '#about',
       ariaLabel: 'About',
       rotation: 0,
       hoverStyles: { bgColor: '#10b981', textColor: '#ffffff' }
     },
     {
       label: 'projects',
-      href: '/projects',
+      href: '#projects',
       ariaLabel: 'Projects',
       rotation: 8,
       hoverStyles: { bgColor: '#f59e0b', textColor: '#ffffff' }
     },
     {
       label: 'contact',
-      href: '/contact',
+      href: '#contact',
       ariaLabel: 'Contact',
       rotation: 12,
       hoverStyles: { bgColor: '#8b5cf6', textColor: '#ffffff' }
@@ -77,19 +77,19 @@ export default function SharedLayout({ children }: { children: React.ReactNode }
       </div>
 
       {/* Header */}
-      <div className="relative z-20 px-4 md:px-6 py-4 md:py-8">
+      <div className="relative z-20 px-4 md:px-6 pt-4 pb-2 md:py-8">
         <div>
-          <h1 className="text-3xl md:text-5xl font-black text-white mb-1 md:mb-2">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-1 md:mb-2">
             <span className="text-blue-500">#about</span>
             <span className="text-white font-bold">me</span>
             <span className="text-gray-500 font-light"> ®</span>
           </h1>
-          <p className="text-gray-400 text-xs md:text-sm font-mono">(ini portofolio...)</p>
+          <p className="text-gray-400 text-[10px] sm:text-xs md:text-sm font-mono">(ini portofolio...)</p>
         </div>
       </div>
 
       {/* Navigation Menu */}
-      <div className="relative z-30 px-4 md:px-6 py-2 md:py-8 pointer-events-auto md:min-h-[88px] flex flex-col md:block">
+      <div className="sticky top-2 z-40 px-4 md:px-6 py-2 md:py-4 pointer-events-auto md:min-h-[88px] flex flex-col md:block">
         <BubbleMenu
           items={items}
           logo={null}
